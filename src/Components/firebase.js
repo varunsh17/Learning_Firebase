@@ -1,13 +1,3 @@
-// import React from 'react'
-
-// function homepage(props) {
-//     return (
-//         <div>
-//             {props.email}
-
-//         </div>
-//     )
-// }
 import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 
