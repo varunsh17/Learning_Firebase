@@ -25,12 +25,12 @@ function App() {
 
   const register = async () => {
     try {
-      const user = await createUserWithEmailAndPassword(
+      await createUserWithEmailAndPassword(
         auth,
         registerEmail,
         registerPassword
       );
-      console.log("THIS IS NEW USER->", user);
+      //console.log("THIS IS NEW USER->", user);
     } catch (error) {
       console.log(error.message);
     }
@@ -39,12 +39,12 @@ function App() {
 
   const login = async () => {
     try {
-      const user = await signInWithEmailAndPassword(
+      await signInWithEmailAndPassword(
         auth,
         loginEmail,
         loginPassword
       );
-      console.log("THIS IS LOGIN PERSON->", user);
+      //console.log("THIS IS LOGIN PERSON->", user);
 
     } catch (error) {
       console.log(error.message);
@@ -52,9 +52,8 @@ function App() {
   };
 
   const logout = () => {
-
     signOut(auth).then(() => {
-      console.log("THIS IS LOGGED OUT");
+      //console.log("THIS IS LOGGED OUT");
       setUser('');
     })
   };
