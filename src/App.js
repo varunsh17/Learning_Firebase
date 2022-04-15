@@ -15,11 +15,10 @@ function App() {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [user, setUser] = useState({});
-  const [password, setPassword] = useState('');
+
   onAuthStateChanged(auth, (cuser) => {
     if (cuser) {
       setUser(cuser);
-      setPassword(cuser);
     } else { }
 
   });
@@ -31,7 +30,7 @@ function App() {
         registerEmail,
         registerPassword
       );
-      //console.log("THIS IS NEW USER->", user);
+      console.log(user);
     } catch (error) {
       console.log(error.message);
     }
@@ -45,8 +44,6 @@ function App() {
         loginEmail,
         loginPassword
       );
-      //console.log("THIS IS LOGIN PERSON->", user);
-
     } catch (error) {
       console.log(error.message);
     }
@@ -54,18 +51,10 @@ function App() {
 
   const logout = () => {
     signOut(auth).then(() => {
-      //console.log("THIS IS LOGGED OUT");
       setUser('');
     })
   };
 
-  const deletedata = () => {
-    console.log(user);
-    user.delete().then(() => {
-      console.log("THIS IS DELETED")
-    })
-
-  }
   return (
     <div className="App">
       <div>
@@ -106,8 +95,9 @@ function App() {
 
       <h4> User Logged In: {user?.email}</h4>
 
+
+
       <button onClick={logout}> Sign Out </button>
-      <button onClick={deletedata}> DELETE ID </button>
     </div>
   );
 }
